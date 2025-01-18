@@ -1,5 +1,5 @@
 import React from 'react'
-import {assets} from "../assets/assets_frontend"
+import { assets } from '../../assets/assets'
 import { NavLink } from 'react-router-dom'
 const NavBar = () => {
   return (
