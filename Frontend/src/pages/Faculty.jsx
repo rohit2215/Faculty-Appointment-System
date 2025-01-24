@@ -4,6 +4,7 @@ import {AppContext} from '../context/AppContext'
 const Faculty = () => {
   const {speciality} = useParams()
   const [filterDoc,setFilterDoc]=useState([]);
+  const [showFilter,setShowFilter] = useState(false)
   const {doctors} = useContext(AppContext);
   const navigate = useNavigate()
   const applyFilter = () =>{
@@ -20,6 +21,7 @@ const Faculty = () => {
     <div>
       <p className='text-gray-600'>Browse through the Faculties based on their specialities.</p>
       <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
+        <button>Filters</button>
         <div className='flex flex-col gap-4 text-sm text-gray-600'>
          <p onClick={()=> speciality === 'General physician' ? navigate('/faculties'):navigate('/faculties/General physician')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality === "General physician" ? "bg-indigo-100 text-black" : ""}`}>Career Counseling Specialist</p>
          <p onClick={()=> speciality === 'Gynecologist' ? navigate('/faculties'):navigate('/faculties/Gynecologist')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality === "Gynecologist" ? "bg-indigo-100 text-black" : ""}`}>Mental Health Counselor</p>
