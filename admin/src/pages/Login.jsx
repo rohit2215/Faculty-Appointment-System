@@ -49,7 +49,7 @@ const Login = () => {
         <button className='bg-[#5F6FFF] text-white w-full py-2 rounded-md text-base'>Login</button>
         {
             state === 'Admin' ? (
-                <p onClick={() => setState('Doctor')}>Doctor Login?  <span className='text-[#5F6FFF] underline cursor-pointer'>Click here</span></p>
+                <p onClick={() => setState('Faculty')}>Faculty Login?  <span className='text-[#5F6FFF] underline cursor-pointer'>Click here</span></p>
             ) : (
                 <p onClick={() => setState('Admin')}>Admin Login? <span className='text-[#5F6FFF] underline cursor-pointer'>Click here</span></p>
             )
