@@ -47,6 +47,8 @@ const MyAppointments = () => {
     }
   }
 
+  const appointmentRazorpay = async () => {}
+
   useEffect(() => {
     if (token) {
       getUserAppointments()
