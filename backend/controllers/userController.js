@@ -221,7 +221,7 @@ const paymentRazorpay = async (req,res) => {
     const options = {
       amount: appointmentData.amount*100,
       currency: process.env.CURRENCY,
-      reciept: appointmentId
+      receipt: appointmentId
     }
 
     //creation of order
