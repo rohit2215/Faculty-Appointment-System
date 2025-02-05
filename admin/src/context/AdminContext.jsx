@@ -8,6 +8,7 @@ const AdminContextProvider = (props) => {
     const [aToken, setAToken] = useState(localStorage.getItem('aToken')?localStorage.getItem('aToken'):'')
     const [doctors, setDoctors] = useState([])
     const [appointments,setAppointments] = useState([])
+    const [dashData,setDashData] = useState(false)
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const getAllDoctors = async () => {
@@ -65,19 +66,22 @@ const AdminContextProvider = (props) => {
                 
             }
         } catch (error) {
-            if (error.response) {
-                // The request was made, but the server responded with a status code outside the range of 2xx
-                console.log("Server Error:", error.response.data);
-                toast.error(error.response.data.message || "Something went wrong");
-            } else if (error.request) {
-                // The request was made but no response was received
-                console.log("Network Error:", error.request);
-                toast.error("Network error, please try again");
-            } else {
-                // Something happened while setting up the request
-                console.log("Axios Error:", error.message);
-                toast.error(error.message);
+            toast.error(error.message)
+        }
+    }
+
+    const getDashData = async () => {
+        try {
+            const {data} = await axios.get(backendUrl + '/api/admin/dashboard',{headers:{aToken}})
+            if (data.success) {
+                setDashData(data.dashData)
+                console.log(data.dashData);
+                
+            }else{
+                toast.error(error.message)
             }
+        } catch (error) {
+            toast.error(error.message)
         }
     }
     const value = {
@@ -86,7 +90,8 @@ const AdminContextProvider = (props) => {
         getAllDoctors,changeAvailability,
         appointments,setAppointments,
         getAllAppointments,
-        cancelAppointment
+        cancelAppointment,
+        dashData,getDashData
     }
     return (
         <AdminContext.Provider value={value}>
