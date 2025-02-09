@@ -10,8 +10,10 @@ const NavBar = () => {
     const navigate= useNavigate()
     const logout = () => {
        navigate('/')
-       aToken && setAToken('') || dToken && setDToken('')
-       aToken && localStorage.removeItem('aToken') || dToken && localStorage.removeItem('dToken')
+       aToken && setAToken('') 
+       aToken && localStorage.removeItem('aToken')
+       dToken && setDToken('')
+       dToken && localStorage.removeItem('dToken')
     }
   return (
     <div className="flex justify-between items-center px-4 sm:px-10 py-3 border-b bg-white">
