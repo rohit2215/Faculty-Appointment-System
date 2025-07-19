@@ -31,7 +31,6 @@ import doc13 from './doc13.png'
 import doc14 from './doc14.png'
 import doc15 from './doc15.png'
 import Dermatologist from './Dermatologist.svg'
-import Gastroenterologist from './Gastroenterologist.svg'
 import General_physician from './General_physician.svg'
 import Gynecologist from './Gynecologist.svg'
 import Neurologist from './Neurologist.svg'
@@ -60,28 +59,24 @@ export const assets = {
 
 export const specialityData = [
     {
-        speciality: 'General physician',
+        speciality: 'Career Counseling Specialist',
         image: General_physician
     },
     {
-        speciality: 'Gynecologist',
+        speciality: 'Mental Health Counselor',
         image: Gynecologist
     },
     {
-        speciality: 'Dermatologist',
+        speciality: 'Academic Counselor',
         image: Dermatologist
     },
     {
-        speciality: 'Pediatricians',
+        speciality: 'Social and Behavioral Counselor',
         image: Pediatricians
     },
     {
-        speciality: 'Neurologist',
+        speciality: 'Substance Abuse Counselor',
         image: Neurologist
-    },
-    {
-        speciality: 'Gastroenterologist',
-        image: Gastroenterologist
     },
 ]
 

@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useState } from 'react'
 import { AdminContext } from '../context/AdminContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { DoctorContext } from '../context/DoctorContext'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-
+    const navigate = useNavigate()
     const [state, setState] = useState('Admin')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,6 +23,7 @@ const Login = () => {
                 if (data.success) {
                     localStorage.setItem('aToken', data.token)
                     setAToken(data.token)
+                    navigate('/admin-dashboard')
                 }else{
                     toast.error(data.message)
                 }
@@ -30,8 +32,7 @@ const Login = () => {
                 if (data.success) {
                     localStorage.setItem('dToken', data.token)
                     setDToken(data.token)
-                    console.log(data.token);
-                    
+                    navigate('/faculty-dashboard')
                 }else{
                     toast.error(data.message)
                 }

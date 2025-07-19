@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { DoctorContext } from "../../context/DoctorContext";
 import { assets } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
 const FacultyDashboard = () => {
-  const { dToken, dashData, setDashData, getDashData,cancelAppointment,completeAppointment } =
+  const { dToken, dashData, getDashData,cancelAppointment,completeAppointment } =
     useContext(DoctorContext);
   const { currency, slotDateFormat } = useContext(AppContext);
   useEffect(() => {
@@ -14,7 +14,7 @@ const FacultyDashboard = () => {
 
   return (
     dashData && (
-      <div className="m-5">
+      <div className="m-2 md:m-5">
         <div className="flex flex-wrap gap-3">
           <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all">
             <img className="w-14" src={assets.earning_icon} alt="" />
@@ -68,7 +68,7 @@ const FacultyDashboard = () => {
                     {slotDateFormat(item.slotDate)}
                   </p>
                 </div>
-                {!item.cancelled ? (
+                {item.cancelled ? (
                   <p className="text-red-500 text-xs font-medium">Cancelled</p>
                 ) : item.isCompleted ? (
                   <p className="text-green-500 text-xs font-medium">

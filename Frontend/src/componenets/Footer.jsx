@@ -1,4 +1,3 @@
-import React from 'react'
 import { assets } from '../../assets/assets'
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
         {/*--------left section-------*/}
         <div>
             <img className='mb-5 w-40' src={assets.logo} alt="" />
-            <p className='w-full md:w-2/3 text-gray-600 leading-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p className='w-full md:w-2/3 text-gray-600 leading-6'>Connect with experienced faculty counselors for personalized guidance and support. Our platform offers easy appointment booking with career counselors, mental health professionals, academic advisors, and behavioral specialists. Get the help you need to achieve your goals and overcome challenges.</p>
         </div>
         {/*--------center section-------*/}
         <div>
@@ -24,10 +23,8 @@ const Footer = () => {
         <div>
             <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
             <ul className='flex flex-col gap-2 text-gray-600'>
-                <li>+91 7269063619</li>
+                <li>+91 7881176765</li>
                 <li>rahulkumar@gmail.com
-                  rohitsrivastava10156@gmail.com
-                  
                 </li>
             </ul>
         </div>

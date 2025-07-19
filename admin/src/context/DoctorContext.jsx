@@ -30,7 +30,7 @@ const DoctorContextProvider = (props) => {
             const {data} = await axios.post(backendUrl + '/api/doctor/complete-appointment',{appointmentId},{headers:{dToken}})
             if (data.success) {
                 toast.success(data.message)
-                getAppointments()
+                getDashData() // Refresh dashboard data instead of appointments
             }else{
                 toast.error(data.message)
             }
@@ -46,7 +46,7 @@ const DoctorContextProvider = (props) => {
             
             if (data.success) {
                 toast.success(data.message)
-                getAppointments()
+                getDashData() // Refresh dashboard data instead of appointments
             }else{
                 toast.error(data.message)
             }

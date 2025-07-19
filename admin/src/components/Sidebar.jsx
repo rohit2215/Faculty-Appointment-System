@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AdminContext } from '../context/AdminContext';
 import { NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
@@ -8,7 +8,7 @@ const Sidebar = () => {
   const { aToken } = useContext(AdminContext);
   const { dToken } = useContext(DoctorContext);
   return (
-    <div className="min-h-screen bg-white border-r">
+    <div className="min-h-screen bg-white border-r min-w-[56px]">
       {aToken && (
         <ul className="text-[#515151] mt-5">
           <NavLink
@@ -39,7 +39,7 @@ const Sidebar = () => {
                 isActive ? 'bg-[#F2F3FF] border-r-4 border-blue-700' : ''
               }`
             }
-            to={"/add-doctor"}
+            to={"/add-faculty"}
           >
             <img src={assets.add_icon} alt="Add Icon" />
             <p className='hidden md:block'>Add Faculty</p>
@@ -50,7 +50,7 @@ const Sidebar = () => {
                 isActive ? 'bg-[#F2F3FF] border-r-4 border-blue-700' : ''
               }`
             }
-            to={"/doctor-list"}
+            to={"/faculty-list"}
           >
             <img src={assets.people_icon} alt="People Icon" />
             <p className='hidden md:block'>Faculty List</p>

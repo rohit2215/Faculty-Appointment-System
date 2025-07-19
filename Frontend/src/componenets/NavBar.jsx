@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
@@ -6,7 +6,7 @@ import { AppContext } from '../context/AppContext';
 const NavBar = () => {
   const navigate = useNavigate();
 
-  const {token,setToken,userData} = useContext(AppContext);
+  const {token,setToken,userData, darkMode, toggleDarkMode} = useContext(AppContext);
 
   const [showMenu,setShowMenu] = useState(false);
 
@@ -46,6 +46,14 @@ const NavBar = () => {
         </NavLink>
       </ul>
       <div className='flex items-center gap-4'>
+        {/* Dark mode toggle button */}
+        <button
+          onClick={toggleDarkMode}
+          title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          className='text-xl focus:outline-none mr-2'
+        >
+          {darkMode ? '☀️' : '🌙'}
+        </button>
         {
           token && userData
           ?<div className='flex items-center gap-2 cursor-pointer group relative'>
@@ -71,7 +79,7 @@ const NavBar = () => {
           </div>
           <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
             <NavLink  onClick={()=>setShowMenu(false)} to='/'><p className='px-4 py-2 rounded inline-block'>HOME</p></NavLink>
-            <NavLink  onClick={()=>setShowMenu(false)} to='/faculties'><p className='px-4 py-2 rounded inline-block'>ALL DOCTORS</p></NavLink>
+            <NavLink  onClick={()=>setShowMenu(false)} to='/faculties'><p className='px-4 py-2 rounded inline-block'>ALL FACULTIES</p></NavLink>
             <NavLink  onClick={()=>setShowMenu(false)} to='/about'><p className='px-4 py-2 rounded inline-block'>ABOUT</p></NavLink>
             <NavLink  onClick={()=>setShowMenu(false)} to='/contact'><p className='px-4 py-2 rounded inline-block'>CONTACT</p></NavLink>
           </ul>

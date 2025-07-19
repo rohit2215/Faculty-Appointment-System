@@ -59,7 +59,7 @@ const AdminContextProvider = (props) => {
             console.log(data);
             if(data.success){
                 toast.success(data.message)
-                getAllAppointments()
+                getDashData() // Refresh dashboard data instead of appointments
             }else{
                 toast.error(data.message)
                 console.log(data.message);
@@ -78,7 +78,7 @@ const AdminContextProvider = (props) => {
                 console.log(data.dashData);
                 
             }else{
-                toast.error(error.message)
+                toast.error(data.message)
             }
         } catch (error) {
             toast.error(error.message)

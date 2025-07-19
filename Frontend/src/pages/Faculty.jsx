@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 const Faculty = () => {
@@ -9,7 +9,8 @@ const Faculty = () => {
   const navigate = useNavigate();
   const applyFilter = () => {
     if (speciality) {
-      setFilterDoc(doctors.filter((doc) => doc.speciality === speciality));
+      const decodedSpeciality = decodeURIComponent(speciality);
+      setFilterDoc(doctors.filter((doc) => doc.speciality === decodedSpeciality));
     } else {
       setFilterDoc(doctors);
     }
@@ -38,12 +39,12 @@ const Faculty = () => {
         >
           <p
             onClick={() =>
-              speciality === "General physician"
+              speciality === "Career Counseling Specialist"
                 ? navigate("/faculties")
-                : navigate("/faculties/General physician")
+                : navigate(`/faculties/${encodeURIComponent("Career Counseling Specialist")}`)
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
-              speciality === "General physician"
+              speciality === "Career Counseling Specialist"
                 ? "bg-indigo-100 text-black"
                 : ""
             }`}
@@ -52,48 +53,48 @@ const Faculty = () => {
           </p>
           <p
             onClick={() =>
-              speciality === "Gynecologist"
+              speciality === "Mental Health Counselor"
                 ? navigate("/faculties")
-                : navigate("/faculties/Gynecologist")
+                : navigate(`/faculties/${encodeURIComponent("Mental Health Counselor")}`)
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
-              speciality === "Gynecologist" ? "bg-indigo-100 text-black" : ""
+              speciality === "Mental Health Counselor" ? "bg-indigo-100 text-black" : ""
             }`}
           >
             Mental Health Counselor
           </p>
           <p
             onClick={() =>
-              speciality === "Dermatologist"
+              speciality === "Academic Counselor"
                 ? navigate("/faculties")
-                : navigate("/faculties/Dermatologist")
+                : navigate(`/faculties/${encodeURIComponent("Academic Counselor")}`)
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
-              speciality === "Dermatologist" ? "bg-indigo-100 text-black" : ""
+              speciality === "Academic Counselor" ? "bg-indigo-100 text-black" : ""
             }`}
           >
             Academic Counselor
           </p>
           <p
             onClick={() =>
-              speciality === "Pediatricians"
+              speciality === "Social and Behavioral Counselor"
                 ? navigate("/faculties")
-                : navigate("/faculties/Pediatricians")
+                : navigate(`/faculties/${encodeURIComponent("Social and Behavioral Counselor")}`)
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
-              speciality === "Pediatricians" ? "bg-indigo-100 text-black" : ""
+              speciality === "Social and Behavioral Counselor" ? "bg-indigo-100 text-black" : ""
             }`}
           >
             Social and Behavioral Counselor
           </p>
           <p
             onClick={() =>
-              speciality === "Neurologist"
+              speciality === "Substance Abuse Counselor"
                 ? navigate("/faculties")
-                : navigate("/faculties/Neurologist")
+                : navigate(`/faculties/${encodeURIComponent("Substance Abuse Counselor")}`)
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
-              speciality === "Neurologist" ? "bg-indigo-100 text-black" : ""
+              speciality === "Substance Abuse Counselor" ? "bg-indigo-100 text-black" : ""
             }`}
           >
             Substance Abuse Counselor

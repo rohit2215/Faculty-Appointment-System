@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { AdminContext } from "../../context/AdminContext";
 import { assets } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
@@ -22,7 +22,7 @@ const Dashboard = () => {
               <p className="text-xl font-semibold text-gray-600">
                 {dashData.doctors}
               </p>
-              <p className="text-gray-400">Doctors</p>
+              <p className="text-gray-400">Faculty</p>
             </div>
           </div>
           <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all">
@@ -40,7 +40,7 @@ const Dashboard = () => {
               <p className="text-xl font-semibold text-gray-600">
                 {dashData.patients}
               </p>
-              <p className="text-gray-400">Patients</p>
+              <p className="text-gray-400">Students</p>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ const Dashboard = () => {
                   </p>
                 ) : (
                   <img
-                    onClick={cancelAppointment(item._id)}
+                    onClick={() => cancelAppointment(item._id)}
                     className="w-10 cursor-pointer"
                     src={assets.cancel_icon}
                     alt=""

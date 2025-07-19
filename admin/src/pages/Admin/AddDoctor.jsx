@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
 import { AdminContext } from "../../context/AdminContext";
 import { toast } from "react-toastify";
@@ -234,7 +234,7 @@ const AddDoctor = () => {
           type="submit"
           className="bg-[#5F6FFF] px-10 py-3 mt-4 text-white rounded-full cursor-pointer"
         >
-          Add doctor
+          Add Faculty
         </button>
       </div>
     </form>

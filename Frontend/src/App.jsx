@@ -15,7 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   return (
-    <div className="mx-4 sm:mx-[10%]">
+    <div className="mx-4 sm:mx-[10%] bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
       <ToastContainer />
       <NavBar />
       <Routes>

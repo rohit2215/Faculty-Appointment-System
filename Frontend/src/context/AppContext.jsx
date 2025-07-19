@@ -10,7 +10,25 @@ const AppContextProvider = (props) =>{
     const [doctors,setDoctors] = useState([])
     const [token,setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : false)
     const [userData,setUserData] = useState(false);
-    
+
+    // Dark mode state
+    const [darkMode, setDarkMode] = useState(() => {
+        const stored = localStorage.getItem('darkMode');
+        return stored ? JSON.parse(stored) : false;
+    });
+    const toggleDarkMode = () => {
+        setDarkMode(prev => {
+            localStorage.setItem('darkMode', JSON.stringify(!prev));
+            return !prev;
+        });
+    };
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [darkMode]);
 
     const getDoctorsData = async () => {
         try {
@@ -46,7 +64,8 @@ const AppContextProvider = (props) =>{
         token,setToken,
         backendUrl,
         userData,setUserData,
-        loadUserProfileData
+        loadUserProfileData,
+        darkMode, toggleDarkMode
     }
     useEffect(() => {
         getDoctorsData()
